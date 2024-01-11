@@ -69,7 +69,9 @@ Ce laboratoire virtuel sur EVE-NG permettra de visualiser concrètement comment 
   <figcaption>Figure 3 : Attribution VLAN</figcaption>
 </figure>
 
+### Note
 
+- Vous pouvez deployé votre service DHCP sur Windows serv ou Pfsense peut importe, personnelement je l'ai faitr sur mon Pfsense.
 ____
 > ## **NPS Policy**
 
