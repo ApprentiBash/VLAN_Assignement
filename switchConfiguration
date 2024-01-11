@@ -1,0 +1,108 @@
+### **Configuration Switch, attribution automatique de VLAN**
+
+```
+enable
+conf t
+hostname SW1
+interface vlan 1
+ip address 10.10.10.1 255.255.255.0
+no shut
+end
+
+configure terminal
+vlan 100
+name PAPA
+vlan 200
+name FILS
+end
+
+configure terminal
+interface GigabitEthernet 0/0
+no shut
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan al
+end
+
+configure terminal
+aaa new-model
+aaa authentication dot1x default group radiusaaa authorization network default group radiusdot1x system-auth-control
+radius server RADIUS_SERVER
+address ipv4 10.10.10.10 auth-port 1812 acct-port 1813
+key Test123
+end
+
+conf t
+radius-server dead-criteria time 3 tries 3
+radius-server timeout 3
+
+interface GigabitEthernet 0/2
+no shut
+switchport mode access
+dot1x pae authenticator
+dot1x port-control auto
+authentication event server dead action authorize
+authentication event server alive action reinitialize 
+spanning-tree portfast
+end
+
+conf t
+interface GigabitEthernet 1/0
+no shut
+switchport mode access
+dot1x pae authenticator
+dot1x port-control auto
+spanning-tree portfast
+authentication event server dead action authorize
+authentication event server alive action reinitialize
+end 
+wr
+```
+
+### **Configuration attribution VLAN 100 sur le port Gi0/2** 
+
+```
+enable
+conf t
+hostname SW1
+interface vlan 1
+ip address 10.10.10.1 255.255.255.0
+no shut
+end
+
+configure terminal
+interface GigabitEthernet 0/0
+no shut
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan all
+end
+
+conf t
+aaa new-model
+radius server AD1
+address ipv4 10.10.10.10 auth-port 1812 acct-port 1813
+key Test123
+end
+
+conf t
+aaa group server radius nps-servers
+server name AD1
+ip radius source-interface Vlan1
+domain-stripping
+dot1x system-auth-control
+dot1x logging verbose
+aaa authentication dot1x default group nps-servers
+aaa authorization network default group nps-servers
+end
+
+conf t
+interface GigabitEthernet 0/2
+no shut
+switchport mode access
+switchport access vlan 100
+authentication port-control auto
+dot1x pae authenticator
+end 
+wr
+```
