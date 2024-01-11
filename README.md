@@ -30,11 +30,13 @@ En utilisant cette plateforme pour créer un environnement de test, nous pourron
 ### Adressage IP des machines 
 
 |  | **PFSENSE** |
-|::|:-------:|
+:--------------:|:---------------:|
 | **WAN** | 192\.168.1.100 /24 |
 | **LAN** | 10\.10.10.2 /24 |
 | **VLAN 100** | 10\.10.100.2 /24 |
 | **VLAN 200** | 10\.10.200.2 ./24 |
+
+
 
 | **Windows server** | 10\.10.10.10 /24 |
 |:--------------:|:---------------:|
