@@ -69,9 +69,6 @@ Ce laboratoire virtuel sur EVE-NG permettra de visualiser concrètement comment 
   <figcaption>Figure 3 : Attribution VLAN</figcaption>
 </figure>
 
-### Note
-
-- Vous pouvez deployé votre service DHCP sur Windows serv ou Pfsense peut importe, personnelement je l'ai faitr sur mon Pfsense.
 ____
 > ## **NPS Policy**
 
@@ -229,5 +226,9 @@ ____
 - [**__https://ipcisco.com/lesson/cisco-802-1x-configuration/__**](https://ipcisco.com/lesson/cisco-802-1x-configuration/)
 - [**__https://mikepembo.wordpress.com/2016/11/07/dynamic-vlan-assignment-cisco-and-nps/__**](https://mikepembo.wordpress.com/2016/11/07/dynamic-vlan-assignment-cisco-and-nps/)
 - [**__https://www.expertnetworkconsultant.com/installing-and-configuring-network-devices/ieee-802-1x-authentication-and-dynamic-vlan-assignment-with-nps-radius-server/__**](https://www.expertnetworkconsultant.com/installing-and-configuring-network-devices/ieee-802-1x-authentication-and-dynamic-vlan-assignment-with-nps-radius-server/)
-
 - [**__https://sharifulhoque.blogspot.com/2019/08/8021x-wired-authentication-with-cisco.html__**](https://sharifulhoque.blogspot.com/2019/08/8021x-wired-authentication-with-cisco.html)
+
+### Note
+
+- Vous pouvez deployé votre service DHCP sur Windows serv ou Pfsense peut importe, personnelement je l'ai faitr sur mon Pfsense.
+- Je n'ai pas détaillé le deploiment d'un serveur Active directory ni la configuration du serveur NPS, ni la mise en place d'un pFsense j'estime que ce n'est pas compliqué à trouver.
