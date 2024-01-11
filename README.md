@@ -95,134 +95,122 @@ ____
 ### **Configuration Switch, attribution automatique de VLAN**
 
 ```
-#### IP du switch
+# Configuration de l'adresse IP du switch
+enable                    # Accéder au mode d'administration privilegié
+conf t                    # Accéder au mode de configuration globale
+hostname SW1              # Définir le nom d'hôte du switch comme SW1
+interface vlan 1          # Accéder à l'interface de gestion du VLAN 1
+ip address 10.10.10.1 255.255.255.0  # Définir l'adresse IP et le masque de sous-réseau pour le VLAN 1
+no shut                   # Activer l'interface
+end                       # Quitter le mode de configuration
 
-enable
-conf t
-hostname SW1
-interface vlan 1
-ip address 10.10.10.1 255.255.255.0
-no shut
-end
+# Création des VLAN sur le switch
+configure terminal        # Accéder au mode de configuration globale
+vlan 100                  # Créer le VLAN 100
+name PAPA                 # Nommer le VLAN 100 comme "PAPA"
+vlan 200                  # Créer le VLAN 200
+name FILS                 # Nommer le VLAN 200 comme "FILS"
+end                       # Quitter le mode de configuration
 
+# Configuration du port en mode trunk
+configure terminal        # Accéder au mode de configuration globale
+interface GigabitEthernet 0/0  # Accéder à l'interface GigabitEthernet 0/0
+no shut                   # Activer le port
+switchport trunk encapsulation dot1q  # Configurer l'encapsulation trunk en mode dot1q
+switchport mode trunk     # Définir le mode du port en trunk
+switchport trunk allowed vlan all  # Autoriser tous les VLAN sur le trunk
+end                       # Quitter le mode de configuration
 
-#### Création des vlan sur le switch
+# Activation de l'authentification RADIUS
+configure terminal        # Accéder au mode de configuration globale
+aaa new-model             # Activer le modèle d'authentification, d'autorisation et d'accounting (AAA)
+aaa authentication dot1x default group radius  # Définir le groupe RADIUS par défaut pour l'authentification 802.1X
+aaa authorization network default group radius  # Définir le groupe RADIUS par défaut pour l'autorisation réseau
+dot1x system-auth-control # Activer le contrôle d'authentification pour le protocole 802.1X
+radius server RADIUS_SERVER  # Accéder à la configuration du serveur RADIUS nommé RADIUS_SERVER
+address ipv4 10.10.10.10 auth-port 1812 acct-port 1813  # Configurer l'adresse IP du serveur RADIUS et les ports d'authentification et d'accounting
+key Test123               # Définir la clé partagée pour l'authentification avec le serveur RADIUS
+end                       # Quitter le mode de configuration
 
+# Configuration des ports en mode DOT1X
+conf t                    # Accéder au mode de configuration globale
+radius-server dead-criteria time 3 tries 3  # Définir les critères de détection de l'état mort du serveur RADIUS
+radius-server timeout 3   # Définir le délai d'attente pour le serveur RADIUS
 
-configure terminal
-vlan 100
-name PAPA
-vlan 200
-name FILS
-end
+interface GigabitEthernet 0/2  # Accéder à l'interface GigabitEthernet 0/2
+no shut                   # Activer le port
+switchport mode access    # Définir le mode du port en mode access
+dot1x pae authenticator  # Configurer le port comme authenticateur 802.1X
+dot1x port-control auto   # Configurer le contrôle de port automatique pour l'authentification 802.1X
+authentication event server dead action authorize  # Définir l'action en cas de serveur RADIUS mort
+authentication event server alive action reinitialize  # Définir l'action en cas de reprise du serveur RADIUS
+spanning-tree portfast    # Activer le mode PortFast pour le port
+end                       # Quitter le mode de configuration
 
+conf t                    # Accéder au mode de configuration globale
+interface GigabitEthernet 1/0  # Accéder à l'interface GigabitEthernet 1/0
+no shut                   # Activer le port
+switchport mode access    # Définir le mode du port en mode access
+dot1x pae authenticator  # Configurer le port comme authenticateur 802.1X
+dot1x port-control auto   # Configurer le contrôle de port automatique pour l'authentification 802.1X
+spanning-tree portfast    # Activer le mode PortFast pour le port
+authentication event server dead action authorize  # Définir l'action en cas de serveur RADIUS mort
+authentication event server alive action reinitialize  # Définir l'action en cas de reprise du serveur RADIUS
+end                       # Quitter le mode de configuration
+write memory              # Sauvegarder la configuration dans la mémoire persistante
 
-#### Port en mode trunk
-
-configure terminal
-interface GigabitEthernet 0/0
-no shut
-switchport trunk encapsulation dot1q
-switchport mode trunk
-switchport trunk allowed vlan al
-end
-
-
-#### Activation radius
-
-configure terminal
-aaa new-model
-aaa authentication dot1x default group radiusaaa authorization network default group radiusdot1x system-auth-control
-radius server RADIUS_SERVER
-address ipv4 10.10.10.10 auth-port 1812 acct-port 1813
-key Test123
-end
-
-
-#### Configuration des ports DOT1X
-
-conf t
-radius-server dead-criteria time 3 tries 3
-radius-server timeout 3
-
-interface GigabitEthernet 0/2
-no shut
-switchport mode access
-dot1x pae authenticator
-dot1x port-control auto
-authentication event server dead action authorize
-authentication event server alive action reinitialize 
-spanning-tree portfast
-end
-
-
-conf t
-interface GigabitEthernet 1/0
-no shut
-switchport mode access
-dot1x pae authenticator
-dot1x port-control auto
-spanning-tree portfast
-authentication event server dead action authorize
-authentication event server alive action reinitialize
-end 
-wr
 ```
 
 ### **Configuration attribution VLAN 100 sur le port Gi0/2** 
 
 ```
-#### IP du switch
+# Configuration du nom d'hôte du switch
+enable                    # Accéder au mode d'administration privilegié
+conf t                    # Accéder au mode de configuration globale
+hostname SW1              # Définir le nom d'hôte du switch comme SW1
+interface vlan 1          # Accéder à l'interface de gestion du VLAN 1
+ip address 10.10.10.1 255.255.255.0  # Définir l'adresse IP et le masque de sous-réseau pour le VLAN 1
+no shut                   # Activer l'interface
+end                       # Quitter le mode de configuration
 
-enable
-conf t
-hostname SW1
-interface vlan 1
-ip address 10.10.10.1 255.255.255.0
-no shut
-end
+# Configuration du port en mode trunk
+configure terminal        # Accéder au mode de configuration globale
+interface GigabitEthernet 0/0  # Accéder à l'interface GigabitEthernet 0/0
+no shut                   # Activer le port
+switchport trunk encapsulation dot1q  # Configurer l'encapsulation trunk en mode dot1q
+switchport mode trunk     # Définir le mode du port en trunk
+switchport trunk allowed vlan all  # Autoriser tous les VLAN sur le trunk
+end                       # Quitter le mode de configuration
 
-#### Port en mode trunk
+# Activation de l'authentification RADIUS
+conf t                    # Accéder au mode de configuration globale
+aaa new-model             # Activer le modèle d'authentification, d'autorisation et d'accounting (AAA)
+radius server AD1         # Accéder à la configuration du serveur RADIUS nommé AD1
+address ipv4 10.10.10.10 auth-port 1812 acct-port 1813  # Configurer l'adresse IP du serveur RADIUS et les ports d'authentification et d'accounting
+key Test123               # Définir la clé partagée pour l'authentification avec le serveur RADIUS
+end                       # Quitter le mode de configuration
 
-configure terminal
-interface GigabitEthernet 0/0
-no shut
-switchport trunk encapsulation dot1q
-switchport mode trunk
-switchport trunk allowed vlan all
-end
+conf t                    # Accéder au mode de configuration globale
+aaa group server radius nps-servers  # Créer un groupe RADIUS nommé nps-servers
+server name AD1           # Ajouter le serveur RADIUS AD1 au groupe
+ip radius source-interface Vlan1  # Spécifier l'interface source pour les communications RADIUS
+domain-stripping          # Activer le "domain stripping" pour les noms d'utilisateur
+dot1x system-auth-control # Activer le contrôle d'authentification pour le protocole 802.1X
+dot1x logging verbose     # Activer les journaux détaillés pour l'authentification 802.1X
+aaa authentication dot1x default group nps-servers  # Définir le groupe RADIUS par défaut pour l'authentification 802.1X
+aaa authorization network default group nps-servers  # Définir le groupe RADIUS par défaut pour l'autorisation réseau
+end                       # Quitter le mode de configuration
 
-#### Activation radius
-
-conf t
-aaa new-model
-radius server AD1
-address ipv4 10.10.10.10 auth-port 1812 acct-port 1813
-key Test123
-end
-
-conf t
-aaa group server radius nps-servers
-server name AD1
-ip radius source-interface Vlan1
-domain-stripping
-dot1x system-auth-control
-dot1x logging verbose
-aaa authentication dot1x default group nps-servers
-aaa authorization network default group nps-servers
-end
-
-#### Configuration du port Gi0/2 pour VLAN 100
-
-conf t
-interface GigabitEthernet 0/2
-no shut
-switchport mode access
-switchport access vlan 100
-authentication port-control auto
-dot1x pae authenticator
-end 
-wr
+# Configuration du port GigabitEthernet 0/2 pour le VLAN 100
+conf t                    # Accéder au mode de configuration globale
+interface GigabitEthernet 0/2  # Accéder à l'interface GigabitEthernet 0/2
+no shut                   # Activer le port
+switchport mode access    # Définir le mode du port en mode access
+switchport access vlan 100 # Assigner le port au VLAN 100
+authentication port-control auto  # Configurer le contrôle d'authentification automatique
+dot1x pae authenticator  # Configurer le port comme authenticateur 802.1X
+end                       # Quitter le mode de configuration
+write memory              # Sauvegarder la configuration dans la mémoire persistante
 ```
 
 ____
