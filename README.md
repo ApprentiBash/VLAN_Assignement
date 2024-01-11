@@ -1,9 +1,11 @@
 # **Attribution dynamique de VLAN** 
 
-![Figure 1 : Schéma structurel du Lab EVE-NG](.attachments.652/Capture%20d%27%C3%A9cran%202024-01-10%20162931.png)
+<figure>
+  <img src="https://github.com/ApprentiBash/VLAN_Assignement/blob/main/allScreen/screen1.png?raw=true" alt="Schéma structurel du Lab EVE-NG">
+  <figcaption>Figure 1 : Schéma structurel du Lab EVE-NG</figcaption>
+</figure>
 
-# 
-
+____
 > ## **Contexte** 
 
 Notre entreprise se prépare à instaurer une méthode dynamique pour la gestion des VLAN au sein de notre infrastructure réseau. Cette approche permettra une segmentation automatisée des périphériques connectés, basée sur des critères tels que les départements, les équipes ou les exigences de sécurité spécifiques.
@@ -43,6 +45,15 @@ En utilisant cette plateforme pour créer un environnement de test, nous pourron
 | **Switch Vios** | 10\.10.10.1 /24 |
 | **Windows 10** | DHCP |
 
+
+### Création domaine et utilisateur dans l'AD
+
+<figure>
+  <img src="https://github.com/ApprentiBash/VLAN_Assignement/blob/main/allScreen/screen6.png?raw=true" alt="Groupe et Utilisateur AD">
+  <figcaption>Figure 2 : Groupe et Utilisateur AD</figcaption>
+</figure>
+
+____
 > ## **Objectif**
 
 Dans ce projet mené sur la plateforme EVE-NG, l'objectif est de créer un environnement réseau virtuel représentatif d'une infrastructure d'entreprise. Deux VLAN distincts seront configurés pour symboliser deux services distincts au sein de l'organisation. L'accent sera mis sur l'attribution de deux utilisateurs Windows 10 à ces VLAN respectifs, chacun appartenant à des groupes distincts dans le cadre d'Active Directory.
@@ -53,16 +64,32 @@ L'objectif global est d'illustrer comment la gestion des VLAN, conjointement ave
 
 Ce laboratoire virtuel sur EVE-NG permettra de visualiser concrètement comment ces mesures peuvent être mises en place pour répondre aux besoins spécifiques d'une organisation.
 
-![Figure 2 : Attribution VLAN](.attachments.652/Capture%20d%27%C3%A9cran%202024-01-11%20101138.png)
+<figure>
+  <img src="https://github.com/ApprentiBash/VLAN_Assignement/blob/main/allScreen/screen2.png?raw=true" alt="Attribution VLAN">
+  <figcaption>Figure 3 : Attribution VLAN</figcaption>
+</figure>
 
+
+____
 > ## **NPS Policy**
 
-![Figure 3 : Stratégie de demande](.attachments.652/Capture%20d%27%C3%A9cran%202024-01-10%20172014.png)
+<figure>
+  <img src="https://github.com/ApprentiBash/VLAN_Assignement/blob/main/allScreen/screen3.png?raw=true" alt="Stratégie de demande">
+  <figcaption>Figure 4 : Stratégie de demande</figcaption>
+</figure>
 
-![Figure 4 : Stratégie réseau PAPA](.attachments.652/Capture%20d%27%C3%A9cran%202024-01-10%20172131.png)
+<figure>
+  <img src="https://github.com/ApprentiBash/VLAN_Assignement/blob/main/allScreen/screen4.png?raw=true" alt="Stratégie réseau PAPA">
+  <figcaption>Figure 5 : Stratégie réseau PAPA</figcaption>
+</figure>
 
-![Figure 5 : Stratégie réseau FILS](.attachments.652/Capture%20d%27%C3%A9cran%202024-01-10%20172203.png)
+<figure>
+  <img src="https://github.com/ApprentiBash/VLAN_Assignement/blob/main/allScreen/screen5.png?raw=true" alt="Stratégie réseau FILS">
+  <figcaption>Figure 6 : Stratégie réseau FILS</figcaption>
+</figure>
 
+
+____
 > ## **Switch Vios Configuration** 
 
 ### **Configuration Switch, attribution automatique de VLAN**
@@ -198,6 +225,15 @@ end 
 wr
 ```
 
+____
+> ## **Result** 
+
+<figure>
+  <img src="https://github.com/ApprentiBash/VLAN_Assignement/blob/main/allScreen/screen7.png?raw=true" alt="Resultat atterndu">
+  <figcaption>Figure 7 : Resultat atterndu</figcaption>
+</figure>
+
+____
 > ## **Source**
 
 - [**__https://ipcisco.com/lesson/cisco-802-1x-configuration/__**](https://ipcisco.com/lesson/cisco-802-1x-configuration/)
