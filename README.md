@@ -65,7 +65,7 @@ L'objectif global est d'illustrer comment la gestion des VLAN, conjointement ave
 Ce laboratoire virtuel sur EVE-NG permettra de visualiser concrètement comment ces mesures peuvent être mises en place pour répondre aux besoins spécifiques d'une organisation.
 
 <figure>
-  <img src="https://github.com/ApprentiBash/VLAN_Assignement/blob/main/allScreen/screen2.png?raw=true" alt="Attribution VLAN">
+  <img src="https://github.com/ApprentiBash/VLAN_Assignement/blob/main/allScreen/screen5.png?raw=true" alt="Attribution VLAN">
   <figcaption>Figure 3 : Attribution VLAN</figcaption>
 </figure>
 
@@ -76,17 +76,17 @@ ____
 > ## **NPS Policy**
 
 <figure>
-  <img src="https://github.com/ApprentiBash/VLAN_Assignement/blob/main/allScreen/screen3.png?raw=true" alt="Stratégie de demande">
+  <img src="https://github.com/ApprentiBash/VLAN_Assignement/blob/main/allScreen/screen2.png?raw=true" alt="Stratégie de demande">
   <figcaption>Figure 4 : Stratégie de demande</figcaption>
 </figure>
 
 <figure>
-  <img src="https://github.com/ApprentiBash/VLAN_Assignement/blob/main/allScreen/screen4.png?raw=true" alt="Stratégie réseau PAPA">
+  <img src="https://github.com/ApprentiBash/VLAN_Assignement/blob/main/allScreen/screen3.png?raw=true" alt="Stratégie réseau PAPA">
   <figcaption>Figure 5 : Stratégie réseau PAPA</figcaption>
 </figure>
 
 <figure>
-  <img src="https://github.com/ApprentiBash/VLAN_Assignement/blob/main/allScreen/screen5.png?raw=true" alt="Stratégie réseau FILS">
+  <img src="https://github.com/ApprentiBash/VLAN_Assignement/blob/main/allScreen/screen4.png?raw=true" alt="Stratégie réseau FILS">
   <figcaption>Figure 6 : Stratégie réseau FILS</figcaption>
 </figure>
 
