@@ -217,7 +217,7 @@ ____
 
 <figure>
   <img src="https://github.com/ApprentiBash/VLAN_Assignement/blob/main/allScreen/screen7.png?raw=true" alt="Resultat atterndu">
-  <figcaption>Figure 7 : Resultat atterndu</figcaption>
+  <figcaption>Figure 7 : Resultat attendu</figcaption>
 </figure>
 
 ____
