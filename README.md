@@ -230,5 +230,5 @@ ____
 
 ### Note
 
-- Vous pouvez deployé votre service DHCP sur Windows serv ou Pfsense peut importe, personnelement je l'ai fait sur mon Pfsense.
+- Vous pouvez deployé votre service DHCP sur Windows serv ou Pfsense peut importe, personnellement je l'ai fait sur mon Pfsense.
 - Je n'ai pas détaillé le deploiment d'un serveur Active directory ni la configuration du serveur NPS, ni la mise en place d'un Pfsense. J'estime qu'il faut savoir au minimum faire cela pour la mise en place de ce lab, ce ne sont pas des informations compliquées à trouver la plupart sont dans les liens que j'ai fournis.
