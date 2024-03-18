@@ -90,7 +90,7 @@ ____
 
 ____
 > ## **Switch Vios Configuration** 
-
+#### Vous pouvez copier/coller la config sur les switch
 ### **Configuration Switch, attribution automatique de VLAN**
 
 ```
@@ -162,6 +162,7 @@ write memory              # Sauvegarder la configuration dans la mémoire persis
 
 ### **Configuration attribution VLAN 100 sur le port Gi0/2** 
 
+
 ```
 # Configuration du nom d'hôte du switch
 enable                    # Accéder au mode d'administration privilegié
@@ -230,5 +231,5 @@ ____
 
 ### Note
 
-- Vous pouvez deployé votre service DHCP sur Windows serv ou Pfsense peut importe, personnellement je l'ai fait sur mon Pfsense.
+- Vous pouvez deployer votre service DHCP sur Windows serv ou Pfsense peut importe, personnellement je l'ai fait sur mon Pfsense.
 - Je n'ai pas détaillé le deploiment d'un serveur Active directory ni la configuration du serveur NPS, ni la mise en place d'un Pfsense. J'estime qu'il faut savoir au minimum faire cela pour la mise en place de ce lab, ce ne sont pas des informations compliquées à trouver la plupart sont dans les liens que j'ai fournis.
